@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            functions
+        </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    </head>
+    <body>
+
+        <script type="text/javascript">
+
+
+//function max of two-----------------------------------------------------------
+            document.write("Finding the largest of two numbers: 3, 55" + "<br>");
+
+            var number1 = 3;
+            var number2 = 55;
+            max(number1, number2);
+
+            function max(number1, number2) {
+                if (number1 > number2) {
+                    document.write("the largest of two numbers is:" + number1);
+                } else {
+                    document.write("The largest of two numbers is:" + number2);
+
+                }
+
+            }
+            document.body.appendChild(document.createElement("HR"));
+
+//------------------------------------------------------------------------------
+
+
+//function max of three---------------------------------------------------------
+
+            var number1 = 3;
+            var number2 = 553;
+            var number3 = 53;
+
+            document.write("Finding the largest of " +
+                    "three numbers: " + number1 + ", " + number2 + ", " + number3 + "<br>");
+
+
+            maxOfThree(number1, number2, number3);
+            function maxOfThree(number1, number2, number3) {
+                var array = [number1, number2, number3];
+
+                var max = number1;
+
+                for (var i = 0; i < array.length; i++) {
+                    if (array[i] > max) {
+                        max = array[i];
+                    }
+                }
+
+                document.write("The largest of the three numbers is:" + max);
+
+            }
+            document.body.appendChild(document.createElement("HR"));
+//------------------------------------------------------------------------------
+
+
+
+//function checking for vowel---------------------------------------------------
+
+            var aChar = "e";
+
+            document.write("Checking if  ' " + aChar + " '  is a vowel.."
+                    + "<br>");
+
+            isVowel(aChar);
+
+            function isVowel(aChar) {
+                aChar = aChar.toUpperCase();
+
+                var vowel = ["A", "E", "I", "O", "U"];
+                var result = "Is not a vowel";
+                for (var i = 0; i < vowel.length; i++) {
+
+                    if (vowel[i] === aChar) {
+                        result = "It is a vowel!";
+                    }
+                }
+                document.write(result);
+            }
+            document.body.appendChild(document.createElement("HR"));
+//------------------------------------------------------------------------------
+
+// function translate() that translates a text. Double every consonant and place
+//  an occurrence of "o" in between. ---------------------------------
+
+
+            var aString = "this is fun";//"tothohisos isos fofunon"
+            document.write("Translating the text: ' " + aString + " ' ..."
+                    + "<br>");
+            document.write(translate(aString));
+
+
+
+            function translate(aString) {
+
+                var newString = "";
+                var translate = "";
+                for (var i = 0; i < aString.length; i++) {
+
+
+                    if (isConsonant(aString[i])) {
+
+                        newString = aString[i];
+                        newString += "o" + newString;
+                    } else if (vowel(aString[i])) {
+                        newString = aString[i ];
+                    } else {
+                        newString = " ";
+                    }
+                    translate += newString;
+
+                }
+                return translate;
+            }
+
+
+            function vowel(char) {
+
+                return char.match(/[aeiou]/);
+            }
+
+            function isConsonant(char) {
+
+                return char.match(/[bcdfghjklmnpqrstvwxyz]/);
+            }
+            document.body.appendChild(document.createElement("HR"));
+//------------------------------------------------------------------------------
+
+//a function sum() and a function multiply() that sums and multiplies (respectively) 
+
+            var array = ["1", "2", "3", "4"];
+            sum();
+            multiply();
+
+            function sum() {
+
+                var sum = 0;
+                for (var i = 0; i < array.length; i++) {
+                    sum += Number(array[i]);
+
+                }
+                document.write("Adding 1+2+3+4 = " + sum + "<br>");
+            }
+
+            function multiply() {
+                var sum = 1;
+                for (var i = 0; i < array.length; i++) {
+                    sum = sum * Number(array[i]);
+
+                }
+                document.write("Multiplying 1*2*3*4 = " + sum + "<br>");
+
+            }
+            document.body.appendChild(document.createElement("HR"));
+
+//------------------------------------------------------------------------------
+
+//----- function reverse() that computes the reversal of a string---------------
+
+
+            var forReverse = "jag testar";
+
+            document.write("String to reverse: " + forReverse + "<br>");
+
+            document.write("translate: " + reverse(forReverse));
+
+            function reverse(forReverse) {
+                var newStr = "";
+                for (var i = forReverse.length - 1; i >= 0; i--) {
+                    newStr += forReverse[i];
+                }
+                return newStr;
+            }
+
+            document.body.appendChild(document.createElement("HR"));
+
+//------------------------------------------------------------------------------
+
+//a function to sort a list of words (an array) in alphabetical order.---------
+
+            var array = ["Echo", "Charly", "Alpha", "Bravo"];
+            document.write("sort a list of words (an array) in alphabetical order: "
+                    + array + "<br><br>");
+
+            document.write(sortWords(array));
+
+            function sortWords(array) {
+
+                var done = false;
+                while (!done) {
+                    done = true;
+                    for (var i = 1; i < array.length; i++) {
+                        if (array[i - 1].charAt(0) > array[i].charAt(0)) {
+                            done = false;
+                            var tmp = array[i - 1];
+                            array[i - 1] = array[i];
+                            array[i] = tmp;
+
+                        }
+
+                    }
+
+                }
+                return array.join('<br>');
+            }
+
+            document.body.appendChild(document.createElement("HR"));
+
+//------------------------------------------------------------------------------
+
+
+//function findLongestWord() that takes an array of words and returns the length
+// of the longest one.
+
+            var array = ["arguments", "function", "Represent", "demonstration"];
+            document.write("Finding the largest word from :" + array + "....."
+                    + "<br><br>");
+
+            document.write("The longest word is: '" + findLongestWord(array) + "'");
+
+            function findLongestWord(array) {
+                var longest = array[0];
+                for (var i = 0; i < array.length; i++) {
+                    if (array[i].length > longest.length) {
+                        longest = array[i];
+                    }
+                }
+                return longest;
+
+            }
+
+            document.body.appendChild(document.createElement("HR"));
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+//function filterLongWords() that takes an array of words and an integer i and 
+//returns the array of words that are longer than i.
+
+            var array = ["frequency", "screenshot", "deductions",
+                "user", "Name", "form", "javascript"];
+            document.write("Finding words that are longer than 5 characters from :"
+                    + array + "....." + "<br><br>");
+
+            var j = 5;
+
+            document.write("The longest words than  5 characters are: '"
+                    + filterLongWords(array, j).join(" ") + "'");
+
+            function filterLongWords(array, j) {
+                var longest = [];
+                for (var i = 0; i < array.length; i++) {
+                    if (array[i].length > j) {
+                        longest[i] = array[i];
+
+                    }
+                }
+                return longest;
+
+            }
+
+            document.body.appendChild(document.createElement("HR"));
+//------------------------------------------------------------------------------
+
+
+//------------------------------------------------------------------------------
+//function charFreq() that takes a string and builds a frequency listing of the 
+//character contained in it.  Represent the frequency listing as a Javascript object.
+
+
+            var str = "abbabcbdbabdbdbabababcbcbab";
+            document.write("<br>string to build a frequency listing of the "
+                    + "characters contained in it: " + str + "<br><br>");
+
+
+            dict = charFreq(str);
+
+            Object.entries(dict).forEach(
+                    ([key, value]) =>
+                document.write(" char: " + key + "&nbsp; &nbsp; &nbsp; frequency: "
+                        + value + "<br>")
+            );
+
+            function charFreq(str) {
+                var frequency = {};
+                for (var i = str.length - 1; i >= 0; i--) {
+                    frequency[str[i]] = 1 + (frequency[str[i]] || 0);
+                }
+                return frequency;
+            }
+
+            document.body.appendChild(document.createElement("HR"));
+//-------------------------------------------------------------------------------
+        </script>
+
+    </body>
+</html>
+
